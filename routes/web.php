@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+//  rotte che si devono trovare sotto il controllo di midleware. in pocche parole permette l'accesso agli utenti autentificati e verificati.
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
