@@ -32,11 +32,16 @@
                                             class="btn btn-sm btn-primary">Show</a>
                                         <a href="{{ Route('admin.posts.edit', $item->id) }}"
                                             class="btn btn-sm btn-warning">Edit</a>
-                                        <form action="#" class="d-inline-block" method="POST">
+                                        <form action="{{ Route('admin.posts.destroy', $item) }}"
+                                            class="d-inline-block project-delete-button"
+                                            data-project-title="{{ $item->title }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button href="#" class="btn btn-sm btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-sm btn-danger " data-bs-toggle="modal"
+                                                data-bs-target="#staticBackdrop">
+                                                Delete
                                         </form>
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -46,4 +51,5 @@
             </div>
         </div>
     </div>
+    @include('admin.partials.modal_delete');
 @endsection
