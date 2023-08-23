@@ -11,7 +11,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'content', 'slug'];
+    protected $fillable = ['title', 'content', 'slug', 'image'];
 
     // una funzione standarta che modifica il titpo da Ciao mondo a Ciao-mondo 
     public static function generateSlug($title){
