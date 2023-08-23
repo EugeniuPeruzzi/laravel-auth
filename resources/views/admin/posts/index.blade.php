@@ -4,8 +4,12 @@
     <div class="container">
         <div class="col">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 d-flex justify-content-evenly align-items-center my-5">
                     <h1>I nostri progetti</h1>
+                    <div class="btn-container">
+                        <a href="{{ Route('admin.posts.create') }}"><button class="btn btn-secondary">Crea
+                                progetto</button></a>
+                    </div>
                 </div>
                 <div class="col-12">
                     <table class="table table-stripped">
