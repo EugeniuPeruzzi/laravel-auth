@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="col-12 mb-5">
-                <form action=" {{ Route('admin.posts.update', $post) }} " method="POST">
+                <form action=" {{ Route('admin.posts.update', $post->id) }} " method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-group border p-4">
@@ -24,14 +24,14 @@
                             <div class="col-12 my-2">
                                 <!-- Content -->
                                 <label class="control-label my-2">Content</label>
-                                <textarea name="description" id="description" placeholder="Inserisci la descrizione" cols="30" rows="10"
-                                    class="form-control" required>{{ old('description') ?? $post->content }}</textarea>
+                                <textarea name="content" id="content" placeholder="Inserisci la descrizione" cols="30" rows="10"
+                                    class="form-control" required>{{ old('content') ?? $post->content }}</textarea>
                             </div>
                             <div class="col-12 my-2">
                                 <!-- Slug -->
                                 <label class="control-label my-2">Slug</label>
-                                <input type="text" name="thumb" id="thumb" placeholder="Inserisci la thumb"
-                                    class="form-control" value="{{ old('thumb') ?? $post->slug }}" required>
+                                <input type="text" name="slug" id="slug" placeholder="Inserisci la slug"
+                                    class="form-control" value="{{ old('slug') ?? $post->slug }}" required>
                             </div>
                             {{-- <div class="col-12 my-2">
                                             <!-- Cover Image -->
