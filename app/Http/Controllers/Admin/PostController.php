@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -39,10 +40,13 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $data = $request->all();
+        $form_data = $request->all();
+        if($request->hasFile('image')){
+            $path = Storage::put('image', $request->image);
+            $form_data['image']=$path;
+        }
 
         $post = new Post();
-
 
         $post->fill($data);
         $post->save();
@@ -84,7 +88,15 @@ class PostController extends Controller
     public function update(UpdatePostRequest $request, Post $post)
     {
         $form_data = $request->all();
+
+        if($request->hasFile('image')){
+            $path = Storage::put('image', $request->image);
+
+            $form_data['image']=$path;
+        }
+
         $post->update($form_data);
+
         return redirect()->route('admin.posts.show', compact('post'));
     }
 

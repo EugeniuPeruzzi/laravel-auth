@@ -33,20 +33,25 @@
                                 <input type="text" name="slug" id="slug" placeholder="Inserisci la slug"
                                     class="form-control" value="{{ old('slug') ?? $post->slug }}" required>
                             </div>
-                            {{-- <div class="col-12 my-2">
-                                            <!-- Cover Image -->
-                                            <label class="control-label my-2">Cover Image</label>
-                                            <input type="text" name="cover_image" id="cover_image"
-                                                placeholder="Inserisci la cover image" class="form-control"
-                                                value="{{ old('cover_image') ?? $comic->cover_image }}" required>
-                                        </div> --}}
+                            <div class="col-12 my-2">
+                                <!-- Cover Image -->
+                                <div class="form-group my-5 d-flex flex-column ">
+                                    <div class="col-12 text-center my-5">
+                                        <img width="450px" src="{{ asset('storage/' . $post->image) }}" alt="">
+                                    </div>
+                                    <label for="" class="control-label mb-3">
+                                        Image
+                                    </label>
+                                    <input class="ps-3 form-control" type="file" id="image" name="image"
+                                        value="{{ $post->image }}">
+                                </div>
 
-                            <div class="col-12 text-center my-5">
-                                <!-- Submit Button -->
-                                <button type="submit" class="btn btn-success">Modifica</button>
+                                <div class="col-12 text-center my-5">
+                                    <!-- Submit Button -->
+                                    <button type="submit" class="btn btn-success">Modifica</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </form>
             </div>
         </div>
