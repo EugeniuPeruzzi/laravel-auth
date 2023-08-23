@@ -34,14 +34,10 @@
                             </div>
                             <!-- Cover Image -->
                             <div class="form-group my-5 d-flex flex-column ">
-                                <div class="col-12 text-center my-5">
-                                    <img width="450px" src="{{ asset('storage/' . $post->image) }}" alt="">
-                                </div>
                                 <label for="" class="control-label mb-3">
                                     Image
                                 </label>
-                                <input class="ps-3 form-control" type="file" id="image" name="image"
-                                    value="{{ $post->image }}">
+                                <input class="ps-3 form-control" type="file" id="image" name="image">
                             </div>
 
                             <div class="col-12 text-center my-5">

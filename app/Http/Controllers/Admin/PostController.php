@@ -48,7 +48,7 @@ class PostController extends Controller
 
         $post = new Post();
 
-        $post->fill($data);
+        $post->fill($form_data);
         $post->save();
 
         return redirect()->route('admin.posts.show', $post->id);
